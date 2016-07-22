@@ -1,0 +1,35 @@
+#onin
+#export HTTP_PROXY=http://username:pwd@mtp-websvr1.mgc.local:80/
+#export HTTPS_PROXY=https://username:pwd@mtp-websvr1.mgc.local:80/
+#export https_proxy='';
+# mtp-websvr1.mgc.local
+# mbtc\31449
+
+#onin
+#source /Users/onin/.phpbrew/bashrc
+#export PHPBREW_SET_PROMPT=1
+#export PHPBREW_RC_ENABLE=1
+
+#onin
+export NVM_DIR="/Users/onin/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# onin colored ls output
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
+# onin git aware add on prompt
+export GITAWAREPROMPT=~/.bash/git-aware-prompt
+source "${GITAWAREPROMPT}/main.sh"
+
+#onin custom prompt PS1
+export PS1="\[$(tput bold)\]\[\033[38;5;225m\]\d\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;51m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;9m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;11m\]\W\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput bold)\]\[$txtblu\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\] \n\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;118m\]\\$\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]\[$(tput sgr0)\] "
+
+#onin for jdk/jre, android studio
+#JAVA_HOME=/home/onin/programs/jdk1.8.0_72
+export ANDROID_HOME=/Users/onin/Library/Android/sdk
+#export JRE_HOME=$JAVA_HOME
+export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+
+#onin
+export PATH=$PATH:~/bin:/usr/local/mysql/bin
