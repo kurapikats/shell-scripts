@@ -1,0 +1,42 @@
+** Setup SSL on nginx web server
+
+* Create the SSL Certicate
+
+$ sudo mkdir /etc/nginx/ssl
+$ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
+
+Country Name (2 letter code) [AU]:PH
+State or Province Name (full name) [Some-State]:Manila
+Locality Name (eg, city) []:Makati
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:TheCompany
+Organizational Unit Name (eg, section) []:Sample Unit Name
+Common Name (e.g. server FQDN or YOUR name) []:thecompany.com
+Email Address []:jesus.nana@thecompany.com
+
+* Configure nginx to use SSL
+
+$ sudo nano /etc/nginx/conf.d/thecompany.com.conf
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server ipv6only=on;
+
+    listen 443 ssl;
+
+    root /var/www;
+    index index.html index.htm;
+
+    server_name thecompany.com;
+    ssl_certificate /etc/nginx/ssl/nginx.crt;
+    ssl_certificate_key /etc/nginx/ssl/nginx.key;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
+$ sudo service nginx restart
+
+* Test the server on the browser
+
+http://localhost:80
+http://localhost:443
