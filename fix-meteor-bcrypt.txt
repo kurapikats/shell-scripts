@@ -1,0 +1,3 @@
+#fix for meteor bcrypt install failure on linux
+meteor npm i --save bcrypt
+sudo apt-get install build-essential g++
