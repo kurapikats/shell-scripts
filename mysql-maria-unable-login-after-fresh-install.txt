@@ -1,0 +1,16 @@
+Problem:
+Unable to login to mariadb/mysql after fresh install.
+
+Workaround:
+Login as root with sudo. ie:
+sudo mysql -u root -p
+
+Reason:
+The db server uses unix_socket plugin for the root user
+
+Solution:
+$ shell$ sudo mysql -u root
+[mysql] use mysql;
+[mysql] update user set plugin='' where User='root';
+[mysql] flush privileges;
+[mysql] \q
