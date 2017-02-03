@@ -1,0 +1,1 @@
+tar -xzvf projects.tgz projects/ --exclude={.meteor/local,node_modules}
