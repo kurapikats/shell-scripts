@@ -1,4 +1,5 @@
-# my custom atom movement keys, ala vim.
+# my custom atom movement keys (OSX), ala vim.
+# for linux/win replace alt with ctrl
 'atom-text-editor':
   'alt-h': 'core:move-left'
   'alt-j': 'core:move-down'
