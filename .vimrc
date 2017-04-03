@@ -18,5 +18,31 @@ set colorcolumn=80
 set backspace=indent,eol,start
 set ruler
 set nohlsearch
+set laststatus=2
 
 inoremap jj <ESC> 
+execute pathogen#infect()
+filetype plugin indent on
+
+" for syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" for ctrl-p
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" for javascript-libraries-syntax
+" let g:used_javascript_libs = 'jquery,react'
+" autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+" autocmd BufReadPre *.jsx let b:javascript_lib_use_react = 1
+
+" for NERDTree, auto show tree when no file loaded
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+map <C-b> :NERDTreeToggle<CR>
