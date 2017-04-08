@@ -12,6 +12,9 @@ endif
 syntax on
 colors elflord
 set rnu " Set relative lin numbering
+set expandtab
+set shiftwidth=2
+set softtabstop=2
 set tabstop=2
 set autoindent
 set colorcolumn=80
@@ -19,6 +22,7 @@ set backspace=indent,eol,start
 set ruler
 set nohlsearch
 set laststatus=2
+set ignorecase smartcase
 
 inoremap jj <ESC> 
 execute pathogen#infect()
@@ -42,7 +46,10 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " autocmd BufReadPre *.jsx let b:javascript_lib_use_react = 1
 
 " for NERDTree, auto show tree when no file loaded
+" map toogle
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 map <C-b> :NERDTreeToggle<CR>
+
+let g:jsx_ext_required = 0
+" let g:xml_syntax_folding = 1
