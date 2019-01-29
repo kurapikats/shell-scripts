@@ -1,0 +1,2 @@
+git commit --date="10 day ago" -m "Your commit message" 
+
